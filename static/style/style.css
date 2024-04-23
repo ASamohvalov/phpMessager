@@ -1,0 +1,70 @@
+body {
+    background-color: rgb(211, 211, 211);
+}
+
+li {
+    list-style-type: none;
+}
+
+.main-main-div {
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 400px;
+    margin-top: 150px;
+}
+
+.main-div {
+    background-color: rgb(44, 44, 44);
+}
+
+.main-div_text {
+    text-align: center;
+    font-size: 23px;
+}
+
+.main-div_content {
+    margin: 5px 20px 0 20px;
+}
+
+.main-div_content_button {
+    text-align: center;
+}
+
+.m-n:hover {
+    background-color: rgb(201, 201, 201);
+}
+
+.error {
+    color: brown;
+}
+
+.seccess-message {
+    text-align: center;
+    color: rgb(115, 161, 115);
+}
+
+.error-message {
+    text-align: center;
+    color: brown;
+}
+
+.main-div_main {
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    width: 600px;
+    margin-top: 200px;
+}
+
+.main-div_main_avatar {
+    margin: 20px;
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+}
+
+.main-div_table {
+    margin-top: 50px;
+    margin-right: 20px;
+}
