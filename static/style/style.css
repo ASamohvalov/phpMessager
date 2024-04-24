@@ -68,3 +68,45 @@ li {
     margin-top: 50px;
     margin-right: 20px;
 }
+
+.correspondence-div {
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 400px;
+    margin-top: 150px;
+}
+
+.correspondence-div_main-div {
+    height: 400px;    
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.correspondence-div_main-div_content {
+    margin: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid white;
+    height: 50px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    &:hover {
+        background-color: rgb(71, 71, 71);
+    }
+}
+
+.main-div_correspondence_avatar {
+    height: 40px;
+    margin-top: 5px;
+    border-radius: 50%;
+}
+
+.main-div_correspondence_text {
+    margin-top: 10px;
+    margin-left: 18px;
+}
+
+a {
+    text-decoration: none;
+}

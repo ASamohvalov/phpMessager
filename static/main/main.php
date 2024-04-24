@@ -22,7 +22,7 @@ if (!isset($_SESSION['data']['id'])) {
         <div class="main-div_main">
             <div class="main-nav">
                 <a href="../../logic/logout.php" class="btn btn-light btn-sm m-n">Выход</a>
-                <a href="#" class="btn btn-light btn-sm m-n">Сообщения</a>
+                <a href="correspondence.php" class="btn btn-light btn-sm m-n">Сообщения</a>
             </div>
             <div class="main-div shadow-lg rounded text-light">
                 <div style="text-align: center; font-size: 20px; font-weight: 500;">Главная страница</div>
