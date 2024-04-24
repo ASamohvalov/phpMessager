@@ -12,7 +12,7 @@ if (!isset($_SESSION['data']['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Correspondence</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/style.css">
 </head>
@@ -21,15 +21,10 @@ if (!isset($_SESSION['data']['id'])) {
     <div class="correspondence-div">
         <div class="main-nav">
             <a href="../../logic/logout.php" class="btn btn-light btn-sm m-n">Выход</a>
+            <a href="../../dynamic/users.php" class="btn btn-light btn-sm m-n">Поиск</a>
             <a href="main.php" class="btn btn-light btn-sm m-n">Главная страница</a>
         </div>
         <div class="main-div text-light shadow-lg rounded correspondence-div_main-div">
-            <div class="correspondence-div_main-div_seach">
-                <form action="" method="get" class="d-flex">
-                    <input class="form-control me-2 mt-2 mb-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light mt-2 mb-2" type="submit">Search</button>
-                </form>
-            </div>
             <div class="correspondence-div_main-div_scroll">
                 <?php
 

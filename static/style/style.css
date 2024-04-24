@@ -127,3 +127,12 @@ a {
     margin-left: 10px;
     width: 360px;
 }
+
+.seach-div_main-div_scroll {
+    border-top: 1px solid rgb(137, 146, 155);
+}
+
+.scroll-main-div-text {
+    text-align: center;
+    font-size: 20px;
+}
