@@ -23,7 +23,7 @@ if ($errors !== []) {
 // check username 
 $connection = new Connection();
 
-$response = $connection->getData("SELECT * FROM `users` WHERE username = ?", [$user->getUsername()]);
+$response = $connection->getFirstData("SELECT * FROM `users` WHERE username = ?", [$user->getUsername()]);
 
 if ($response) {
     $_SESSION['error']['username'] = 'Имя пользователя уже занято';

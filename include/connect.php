@@ -17,7 +17,15 @@ class Connection
         }
     }
 
-    public function getData($sql, $params = [])
+    public function getAllData($sql, $params = [])
+    {
+        $pdo = $this->connectToDatabase();
+        $statement = $pdo->prepare($sql);
+        $statement->execute($params);
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getFirstData($sql, $params = [])
     {
         $pdo = $this->connectToDatabase();
         $statement = $pdo->prepare($sql);

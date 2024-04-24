@@ -78,9 +78,14 @@ li {
 }
 
 .correspondence-div_main-div {
-    height: 400px;    
+    height: 400px;  
+}
+
+.correspondence-div_main-div_scroll {
     overflow: scroll;
     overflow-x: hidden;
+    height: 400px;
+    background-color: rgb(44, 44, 44);
 }
 
 .correspondence-div_main-div_content {
@@ -109,4 +114,16 @@ li {
 
 a {
     text-decoration: none;
+}
+
+.correspondence-div_main-div_content_is-empty {
+    text-align: center;
+    font-size: 30px;
+    color: rgb(146, 146, 146);
+    margin-top: 150px;
+}
+
+.correspondence-div_main-div_seach {
+    margin-left: 10px;
+    width: 360px;
 }

@@ -10,7 +10,7 @@ $user = new UserAuth(
 );
 
 $connection = new Connection();
-$response = $connection->getData(
+$response = $connection->getFirstData(
     "SELECT * FROM `users` WHERE username = ? AND password = ?",
     [$user->getUsername(), $user->getPassword()]
 );
