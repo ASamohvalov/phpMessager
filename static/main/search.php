@@ -28,21 +28,21 @@ if (!isset($_SESSION['data']['id'])) {
                 <div class="scroll-main-div-text">
                     <b>Users</b>
                 </div>
-                <form action="" method="get" class="d-flex">
-                    <input class="form-control me-2 mt-2 mb-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light mt-2 mb-2" type="submit">Search</button>
-                </form>
+                <div class="input-group input-group-sm mb-3 m-2">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Seach</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="seach-input">
+                </div>
             </div>
-            <div class="correspondence-div_main-div_scroll seach-div_main-div_scroll">
+            <div class="correspondence-div_main-div_scroll seach-div_main-div_scroll" id="user-block">
                 <?php
-                
+
                 foreach ($_SESSION['users'] as $user) {
                     echo '
-                        <a href="#" class="correspondence-div_main-div_content row text-light">
+                        <a href="#" class="correspondence-div_main-div_content row text-light" id="user-block_in">
                             <div class="col-1">
                                 <img src="img/no_avatar.jpg" alt="avatar" class="main-div_correspondence_avatar">
                             </div>
-                            <div class="col main-div_correspondence_text">
+                            <div class="col main-div_correspondence_text" id="user-block_text">
                                 ' . $user['last_name'] . ' ' . $user['first_name'] . '
                             </div>
                         </a>
@@ -53,6 +53,7 @@ if (!isset($_SESSION['data']['id'])) {
             </div>
         </div>
     </div>
+    <script src="script/search.js"></script>
 </body>
 
 </html>

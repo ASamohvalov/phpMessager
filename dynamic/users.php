@@ -8,4 +8,4 @@ $_SESSION['users'] = $connection->getAllData(
     "SELECT * FROM `users`"
 );
 
-header("Location: ../static/main/seach.php");
+header("Location: ../static/main/search.php");
