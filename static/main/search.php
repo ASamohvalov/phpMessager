@@ -21,12 +21,13 @@ if (!isset($_SESSION['data']['id'])) {
     <div class="correspondence-div">
         <div class="main-nav">
             <a href="../../logic/logout.php" class="btn btn-light btn-sm m-n">Выход</a>
+            <a href="../../dynamic/corresp.php" class="btn btn-light btn-sm m-n">Сообщения</a>
             <a href="main.php" class="btn btn-light btn-sm m-n">Главная страница</a>
         </div>
         <div class="main-div text-light shadow-lg rounded correspondence-div_main-div">
             <div class="correspondence-div_main-div_seach">
                 <div class="scroll-main-div-text">
-                    <b>Users</b>
+                    <b>Пользователи</b>
                 </div>
                 <div class="input-group input-group-sm mb-3 m-2">
                     <span class="input-group-text" id="inputGroup-sizing-sm">Seach</span>
@@ -38,7 +39,7 @@ if (!isset($_SESSION['data']['id'])) {
 
                 foreach ($_SESSION['users'] as $user) {
                     echo '
-                        <a href="#" class="correspondence-div_main-div_content row text-light" id="user-block_in">
+                        <a href="message.php" class="correspondence-div_main-div_content row text-light" id="user-block_in">
                             <div class="col-1">
                                 <img src="img/no_avatar.jpg" alt="avatar" class="main-div_correspondence_avatar">
                             </div>
