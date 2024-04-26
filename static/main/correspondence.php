@@ -21,8 +21,8 @@ if (!isset($_SESSION['data']['id'])) {
     <div class="correspondence-div">
         <div class="main-nav">
             <a href="../../logic/logout.php" class="btn btn-light btn-sm m-n">Выход</a>
-            <a href="../../dynamic/users.php" class="btn btn-light btn-sm m-n">Поиск</a>
-            <a href="main.php" class="btn btn-light btn-sm m-n">Главная страница</a>
+            <a href="../../dynamic/view/users.php" class="btn btn-light btn-sm m-n">Поиск</a>
+            <a href="main.php" class="btn btn-light btn-sm m-n">Профиль</a>
         </div>
         <div class="main-div text-light shadow-lg rounded correspondence-div_main-div">
             <div class="correspondence-div_main-div_scroll">

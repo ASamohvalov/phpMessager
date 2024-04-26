@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once('../include/connect.php');
+require_once('../../include/connect.php');
 
 $connection = new Connection();
 $_SESSION['users'] = $connection->getAllData(
@@ -9,4 +9,4 @@ $_SESSION['users'] = $connection->getAllData(
     [$_SESSION['data']['id']]
 );
 
-header("Location: ../static/main/search.php");
+header("Location: ../../static/main/search.php");
