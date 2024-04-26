@@ -31,7 +31,7 @@ if (!isset($_SESSION['data']['id'])) {
                 if (isset($_SESSION['corresp'])) {
                     foreach ($_SESSION['corresp'] as $data) {
                         echo '
-                            <a href="#" class="correspondence-div_main-div_content row text-light">
+                            <a href="../../dynamic/send.php?id=' . $data['id'] . '" class="correspondence-div_main-div_content row text-light">
                                 <div class="col-1">
                                     <img src="img/no_avatar.jpg" alt="avatar" class="main-div_correspondence_avatar">
                                 </div>
@@ -50,14 +50,6 @@ if (!isset($_SESSION['data']['id'])) {
                 }
 
                 ?>
-                <!-- <a href="#" class="correspondence-div_main-div_content row text-light">
-                    <div class="col-1">
-                        <img src="img/no_avatar.jpg" alt="avatar" class="main-div_correspondence_avatar">
-                    </div>
-                    <div class="col main-div_correspondence_text">
-                        samohvalov artem
-                    </div>
-                </a> -->
             </div>
         </div>
     </div>

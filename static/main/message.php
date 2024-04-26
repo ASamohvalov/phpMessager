@@ -38,6 +38,13 @@ if (!isset($_SESSION['data']['id'])) {
             float: left;
             margin-right: 120px;
         }
+
+        .messages-div_is-empty {
+            text-align: center;
+            font-size: 30px;
+            color: rgb(146, 146, 146);
+            margin-top: 150px;
+        }
     </style>
     <div class="correspondence-div">
         <div class="main-nav">
@@ -48,42 +55,29 @@ if (!isset($_SESSION['data']['id'])) {
         <div class="main-div text-light shadow-lg rounded correspondence-div_main-div" style="width: 430px;">
             <div style="background-color: rgb(44, 44, 44); height: 10px;"></div>
             <div class="correspondence-div_main-div_scroll" id="scroll">
-                <span class="messages-div_message set-message">hello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are you</span><br>
-                <span class="messages-div_message get-message">hihi i am finehihi i am finehihi i am finehihi i am finehihi i am finehihi i am finehihi i am fine</span><br>
-                <span class="messages-div_message set-message">hello!!! how are you</span><br>
-                <span class="messages-div_message get-message">hihi i am fine</span><br>
-                <span class="messages-div_message set-message">hello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are you</span><br>
-                <span class="messages-div_message get-message">hihi i am finehihi i am finehihi i am finehihi i am finehihi i am finehihi i am finehihi i am fine</span><br>
-                <span class="messages-div_message set-message">hello!!! how are you</span><br>
-                <span class="messages-div_message get-message">hihi i am fine</span><br>
-                <span class="messages-div_message set-message">hello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are you</span><br>
-                <span class="messages-div_message get-message">hihi i am finehihi i am finehihi i am finehihi i am finehihi i am finehihi i am finehihi i am fine</span><br>
-                <span class="messages-div_message set-message">hello!!! how are you</span><br>
-                <span class="messages-div_message get-message">hihi i am fine</span><br>
-                <span class="messages-div_message set-message">hello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are you</span><br>
-                <span class="messages-div_message get-message">hihi i am finehihi i am finehihi i am finehihi i am finehihi i am finehihi i am finehihi i am fine</span><br>
-                <span class="messages-div_message set-message">hello!!! how are you</span><br>
-                <span class="messages-div_message get-message">hihi i am fine</span><br>
-                <span class="messages-div_message set-message">hello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are you</span><br>
-                <span class="messages-div_message get-message">hihi i am finehihi i am finehihi i am finehihi i am finehihi i am finehihi i am finehihi i am fine</span><br>
-                <span class="messages-div_message set-message">hello!!! how are you</span><br>
-                <span class="messages-div_message get-message">hihi i am fine</span><br>
-                <span class="messages-div_message set-message">hello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are you</span><br>
-                <span class="messages-div_message get-message">hihi i am finehihi i am finehihi i am finehihi i am finehihi i am finehihi i am finehihi i am fine</span><br>
-                <span class="messages-div_message set-message">hello!!! how are you</span><br>
-                <span class="messages-div_message get-message">hihi i am fine</span><br>
-                <span class="messages-div_message set-message">hello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are youhello!!! how are you</span><br>
-                <span class="messages-div_message get-message">hihi i am finehihi i am finehihi i am finehihi i am finehihi i am finehihi i am finehihi i am fine</span><br>
-                <span class="messages-div_message set-message">hello!!! how are you</span><br>
-                <span class="messages-div_message get-message">hihi i am fine</span><br>
+                <?php
+
+                if (isset($_SESSION['messages'])) {
+                    foreach ($_SESSION['messages'] as $msg) {
+                        echo '
+                            <span class="messages-div_message ' . $msg['status'] . '-message">' . $msg['msg'] . '</span><br>
+                        ';
+                    }
+                } else {
+                    echo '
+                        <div class="messages-div_is-empty">is empty</div>
+                    ';
+                }
+
+                ?>
             </div>
             <div class="typing-zone mt-1">
-                <form action="" method="post" class="row align-items-end" style="margin-left: 5px; margin-top: 10px;">
+                <form action="../../dynamic/send.php" method="post" class="row align-items-end" style="margin-left: 5px; margin-top: 10px;">
                     <div class="col-md-9 mb-2">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" style="height: 30px;"></textarea>
+                        <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="2" style="height: 30px;"></textarea>
                     </div>
                     <div class="col-md-1 mb-2" style="margin-left: -10px;">
-                        <button type="button" class="btn btn-light">Submit</button>
+                        <button type="submit" class="btn btn-light">Submit</button>
                     </div>
                 </form>
             </div>

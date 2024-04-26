@@ -32,11 +32,17 @@ $data = $connection->getAllData(
     $ids
 );
 
+$_SESSION['corresp'] = [];
+
 // set data
 foreach ($data as $user) {
     if (array_key_exists($user['id'], $id_corresp)) {
-        $_SESSION['corresp'][] = ['id_corresp' => $id_corresp[$user['id']], 
-            'first_name' => $user['first_name'], 'last_name' => $user['last_name']];
+        $_SESSION['corresp'][] = [
+            'id_corresp' => $id_corresp[$user['id']], 
+            'first_name' => $user['first_name'], 
+            'last_name' => $user['last_name'],
+            'id' => $user['id']
+        ];
     }
 }
 

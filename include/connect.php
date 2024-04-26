@@ -33,6 +33,14 @@ class Connection
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function setDataAndGetId($sql, $params = [])
+    {
+        $pdo = $this->connectToDatabase();
+        $statement = $pdo->prepare($sql);
+        $statement->execute($params);
+        return $pdo->lastInsertId();
+    }
+
     public function setData($sql, $params)
     {
         $pdo = $this->connectToDatabase();
