@@ -26,12 +26,13 @@ if (!isset($_SESSION['data']['id'])) {
             margin-left: 10px;
             margin-right: 10px;
             border-radius: 10px;
+            width: 100%;
             color: black;
         }
 
         .set-message {
             float: right;
-            margin-left: 120px;
+            margin-left: 220px;
         }
 
         .get-message {
@@ -45,6 +46,22 @@ if (!isset($_SESSION['data']['id'])) {
             color: rgb(146, 146, 146);
             margin-top: 150px;
         }
+
+        .messages-div_message_p {
+            margin: 10px;
+        }
+
+        .set {
+            float: right;
+        }
+
+        .get {
+            float: left;
+        }
+
+        .correspondence-div_main-div_user {
+            background-color: rgb(44, 44, 44);
+        }
     </style>
     <div class="correspondence-div">
         <div class="main-nav">
@@ -53,14 +70,25 @@ if (!isset($_SESSION['data']['id'])) {
             <a href="../../dynamic/corresp.php" class="btn btn-light btn-sm m-n">Сообщения</a>
         </div>
         <div class="main-div text-light shadow-lg rounded correspondence-div_main-div" style="width: 430px;">
-            <div style="background-color: rgb(44, 44, 44); height: 10px;"></div>
+            <div class="correspondence-div_main-div_user">
+                <div class="col-1">
+                    <img src="img/no_avatar.jpg" alt="avatar" class="main-div_correspondence_avatar">
+                </div>
+                <div class="col main-div_correspondence_text">
+                    
+                </div>
+            </div>
             <div class="correspondence-div_main-div_scroll" id="scroll">
                 <?php
 
                 if (isset($_SESSION['messages'])) {
                     foreach ($_SESSION['messages'] as $msg) {
                         echo '
-                            <span class="messages-div_message ' . $msg['status'] . '-message">' . $msg['msg'] . '</span><br>
+                            <div style="width: 300px" class="' . $msg['status'] . '">
+                                <div class="messages-div_message ' . $msg['status'] . '-message">
+                                    <p class="messages-div_message_p">' . $msg['msg'] . '</p>
+                                </div><br>
+                            </div>
                         ';
                     }
                 } else {
