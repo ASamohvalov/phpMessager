@@ -18,10 +18,17 @@ if (!isset($_SESSION['messages'])) {
         [$thisUserId, $userId, 1, 0]
     );
 } else {
-    $id_corresp = $connection->getFirstData(
-        "SELECT id FROM `correspondence` WHERE (user_id = ? AND user_id_with = ?) OR (user_id = ? AND user_id_with = ?)",
+    $data = $connection->getFirstData(
+        "SELECT * FROM `correspondence` WHERE (user_id = ? AND user_id_with = ?) OR (user_id = ? AND user_id_with = ?)",
         [$thisUserId, $userId, $userId, $thisUserId]
-    )['id'];
+    );
+    $is_read = $data['user_id'] == $userId ? 'user_is_read' : 'user_with_is_read'; 
+    $connection->setData(
+        "UPDATE `correspondence` SET $is_read = ? WHERE id = ?",
+        [0, $data['id']]
+    );
+
+    $id_corresp = $data['id'];
 }
 
 // set message

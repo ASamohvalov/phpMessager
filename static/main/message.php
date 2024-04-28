@@ -68,15 +68,40 @@ if (!isset($_SESSION['data']['id'])) {
             margin-left: 0px;
             margin-right: 0px;
         }
+
+        .set-time {
+            font-size: 12px;
+            float: right;
+            margin-right: 10px;
+        }
+
+        .get-time {
+            font-size: 12px;
+            float: left;
+            margin-left: 10px;
+        }
+
+        .background-read {
+            background-color: rgb(131, 131, 131);
+        }
+
+        .background-not-read {
+            background-color: rgb(80, 80, 80);
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
     </style>
     <div class="correspondence-div">
         <div class="main-nav">
             <a href="../../logic/logout.php" class="btn btn-light btn-sm m-n">Выход</a>
-            <a href="main.php" class="btn btn-light btn-sm m-n">Главная страница</a>
+            <a href="main.php" class="btn btn-light btn-sm m-n">Профиль</a>
             <a href="../../dynamic/corresp.php" class="btn btn-light btn-sm m-n">Сообщения</a>
         </div>
         <div class="main-div text-light shadow-lg rounded correspondence-div_main-div" style="width: 430px;">
-            <div class="correspondence-div_main-div_user">
+            <a href="../../dynamic/view/profile.php?id=<? echo $_SESSION['user']['id'] ?>" class="correspondence-div_main-div_user">
                 <div class="row correspondence-div_main-div_user_row">
                     <div class="col-1 mb-1">
                         <img src="img/no_avatar.jpg" alt="avatar" class="main-div_correspondence_avatar">
@@ -86,17 +111,19 @@ if (!isset($_SESSION['data']['id'])) {
                         <? echo $_SESSION['user']['first_name'] ?>
                     </div>
                 </div>
-            </div>
+            </a>
             <div class="correspondence-div_main-div_scroll" id="scroll">
                 <?php
 
                 if (isset($_SESSION['messages'])) {
                     foreach ($_SESSION['messages'] as $msg) {
+                        $is_read = $msg['is_read'] == 1 ? 'background-read' : 'background-not-read';
                         echo '
-                            <div style="width: 300px" class="' . $msg['status'] . '">
-                                <div class="messages-div_message ' . $msg['status'] . '-message">
+                            <div style="width: 300px" class="' . $msg['status'] .  '">
+                                <div class="messages-div_message ' . $msg['status'] . '-message ' . $is_read . '">
                                     <p class="messages-div_message_p">' . $msg['msg'] . '</p>
-                                </div><br>
+                                </div>
+                                <div class="' . $msg['status'] . '-time">' . $msg['send_time'] . '</div>
                             </div>
                         ';
                     }

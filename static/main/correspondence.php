@@ -18,6 +18,18 @@ if (!isset($_SESSION['data']['id'])) {
 </head>
 
 <body>
+    <style>
+        .main-div_correspondence_text_new-message {
+            font-size: 12px;
+            color: rgb(119, 121, 124);
+        }
+
+        .correspondence-div_main-div_text {
+            text-align: center;
+            font-size: 20px;
+            
+        }
+    </style>
     <div class="correspondence-div">
         <div class="main-nav">
             <a href="../../logic/logout.php" class="btn btn-light btn-sm m-n">Выход</a>
@@ -25,11 +37,15 @@ if (!isset($_SESSION['data']['id'])) {
             <a href="main.php" class="btn btn-light btn-sm m-n">Профиль</a>
         </div>
         <div class="main-div text-light shadow-lg rounded correspondence-div_main-div">
+            <div class="correspondence-div_main-div_text">
+                <b>Переписки</b>
+            </div>
             <div class="correspondence-div_main-div_scroll">
                 <?php
 
                 if (isset($_SESSION['corresp'])) {
                     foreach ($_SESSION['corresp'] as $data) {
+                        $newMsg = $data['is_read'] == 0 ? '(new message)' : '';
                         echo '
                             <a href="../../dynamic/view/msg.php?id=' . $data['id'] . '" class="correspondence-div_main-div_content row text-light">
                                 <div class="col-1">
@@ -37,6 +53,9 @@ if (!isset($_SESSION['data']['id'])) {
                                 </div>
                                 <div class="col main-div_correspondence_text">
                                     ' . $data['last_name'] . ' ' . $data['first_name'] . '
+                                    <span class="main-div_correspondence_text_new-message">
+                                        ' . $newMsg  . '
+                                    <span>
                                 </div>
                             </a>
                         ';
