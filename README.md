@@ -13,7 +13,7 @@ PHP, JavaScript, HTML, CSS, bootstrap, MySQL, git
 - перениести все файлы из репозитория
 - импортировать MySQL базу данных из файла phpMessager.sql в корне проекта
 - по необходимости изменить пользователя и пароль от базы данных в файле include/connect.php
-- в браузере переходим в localhost/static/login.php
+- в браузере перейти по адресу localhost/static/login.php
 
 Про проект:
 
