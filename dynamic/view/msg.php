@@ -35,6 +35,13 @@ if ($id_corresp) {
         ];
     }
     $_SESSION['messages'] = $messages;
+} else {
+    unset($_SESSION['messages']);
 }
+
+$_SESSION['user'] = $connection->getFirstData(
+    "SELECT * FROM `users` WHERE id = ?",
+    [$idUser]
+);
 
 header("Location: ../../static/main/message.php");

@@ -62,6 +62,12 @@ if (!isset($_SESSION['data']['id'])) {
         .correspondence-div_main-div_user {
             background-color: rgb(44, 44, 44);
         }
+
+        .correspondence-div_main-div_user_row {
+            border-bottom: 1px solid rgb(137, 146, 155);
+            margin-left: 0px;
+            margin-right: 0px;
+        }
     </style>
     <div class="correspondence-div">
         <div class="main-nav">
@@ -71,11 +77,14 @@ if (!isset($_SESSION['data']['id'])) {
         </div>
         <div class="main-div text-light shadow-lg rounded correspondence-div_main-div" style="width: 430px;">
             <div class="correspondence-div_main-div_user">
-                <div class="col-1">
-                    <img src="img/no_avatar.jpg" alt="avatar" class="main-div_correspondence_avatar">
-                </div>
-                <div class="col main-div_correspondence_text">
-                    
+                <div class="row correspondence-div_main-div_user_row">
+                    <div class="col-1 mb-1">
+                        <img src="img/no_avatar.jpg" alt="avatar" class="main-div_correspondence_avatar">
+                    </div>
+                    <div class="col main-div_correspondence_text mb-1">
+                        <? echo $_SESSION['user']['last_name'] ?>
+                        <? echo $_SESSION['user']['first_name'] ?>
+                    </div>
                 </div>
             </div>
             <div class="correspondence-div_main-div_scroll" id="scroll">
