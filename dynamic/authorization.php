@@ -11,11 +11,11 @@ $user = new UserAuth(
 
 $connection = new Connection();
 $response = $connection->getFirstData(
-    "SELECT * FROM `users` WHERE username = ? AND password = ?",
-    [$user->getUsername(), $user->getPassword()]
+    "SELECT * FROM `users` WHERE username = ?",
+    [$user->getUsername()]
 );
 
-if (!$response) {
+if (!password_verify($user->getPassword(), $response['password'])) {
     $_SESSION['error'] = 'Неправильный логин или пароль';
     header("Location: /static/login.php");
     die;

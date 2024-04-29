@@ -15,7 +15,7 @@ class UserReg
         $this->first_name = $this->validate($first_name);
         $this->last_name = $this->validate($last_name);
         $this->username = $this->validate($username);
-        $this->password = $this->validate($password);
+        $this->password = password_hash($this->validate($password), PASSWORD_DEFAULT);
         $this->repeat_password = $this->validate($repeat_password);
 
         $this->isFirstNameValid();
@@ -55,7 +55,7 @@ class UserReg
 
     private function isPasswordRepeatValid()
     {
-        if ($this->repeat_password == null or $this->repeat_password != $this->password) {
+        if (!password_verify($this->repeat_password, $this->password)) {
             $this->errors['repeat_password'] = "Пароли не совпадают";
         }
     }
